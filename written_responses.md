@@ -4,6 +4,10 @@
 
 2. What is an array and how does it work?
 
-
+An array is a data structure, the most efficient when accesing to values through their indexes, it saves references of their items in memory and uses it indexes to find them in O(1) runtime complexity. It's a reference data type, different than primitive data types, you can't copy an array by using the (=) assignment operator, since this will only cretae a new reference or an alias referencing the same point of memory where the array is stored, so any change you make using any of the reference will modify the data stored in the same memory point. 
+The way it works is by using a default length anytime is created, defined by each language, so even empty, it looks in memory a place where it can fit using continuous blocks of memory, whenever the array is full, it duplicates its length(or capacity) and finds a new place in memory where to fit with its new length, even if all its indexes are not being used, it reserves them, once it finds a new place it creates a copy of itself in this new memory space, the important thing hre is that all the items inside of the array are located in memory next to each other and it saves a reference to all of them using its indexes, so anytime you know an index you can access to its value on O(1) runtime complexity.
 
 3. What is a hash table and how does it work?
+
+A hashtable is basically a key/value pairs, the underlying data structure it uses is an array, so each key/value pairs will be saved into an array index by using a hash function that returns a number(the index where it will be stored).
+The hash has collisions from time to time, and to solve this issue, we used a linkedlist to store all collided items into the same index of the array by saving a reference to the next key/value pair. This hash function uses the array's capacity to calculate the index, so each time the array resizes, the hash will change and all items will be relocated according to the new hash result. This makes hashtables super efficient data structure, since you can access the data almost always in O(1) or pretty close to O(1) runtime complexity.
